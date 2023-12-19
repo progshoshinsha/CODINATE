@@ -1,0 +1,481 @@
+@charset "utf-8";
+
+:root {
+   /* メニュー */
+   --mask_z-index: 10;
+   --nav_z-index: 15;
+   /* ヘッダー */
+   --header_z-index: 5;
+   --headerHeight: 56px;
+   --headerPadding_T: 8px;
+   --headerPadding_L: 24px;
+   /* メイン */
+   --container_z-index: 2;
+}
+
+* {
+   padding: 0;
+   margin: 0;
+   font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+   font-weight: bold;
+   box-sizing: border-box;
+}
+
+body.notScroll {
+   overflow: hidden;
+}
+
+button {
+   border: none;
+   outline: none;
+   font: inherit;
+   color: inherit;
+   background: none;
+   cursor: pointer;
+}
+
+ul {
+   list-style: none;
+}
+
+img {
+   vertical-align: bottom;
+}
+
+a {
+   text-decoration: none;
+   color: black;
+}
+
+/* ーーーーーーーーーー メニュー ーーーーーーーーーー */
+.menuMask {
+   background: rgba(20, 20, 20, .7);
+   position: fixed;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   z-index: var(--mask_z-index);
+   display: none;
+}
+
+.menuMask.show {
+   display: block;
+}
+
+.menuNav {
+   position: fixed;
+   top: 0;
+   right: 0;
+   z-index: var(--nav_z-index);
+   transform: translateX(100%);
+   transition: .3s;
+   pointer-events: none;
+}
+
+.menuNav.animation {
+   transform: none;
+}
+
+.menuList {
+   text-align: right;
+}
+
+.menuScrollList {
+   height: 100vh;
+   overflow-y: scroll;
+}
+
+.menuScrollList::-webkit-scrollbar {
+   display: none;
+}
+
+.menuItem {
+   font-size: 3vw;
+}
+
+.menuItem a,
+.menuItem button {
+   background: white;
+   color: black;
+   height: 100%;
+   display: inline-block;
+   padding: 0 16px;
+   margin-bottom: 8px;
+   pointer-events: all;
+}
+
+.menuItem a:hover,
+.menuItem button:hover {
+   background: black;
+   color: white;
+}
+
+/* ーーーーーーーーーー ヘッダー ーーーーーーーーーー */
+header {
+   background: white;
+   width: 100%;
+   height: var(--headerHeight);
+   padding: var(--headerPadding_T) var(--headerPadding_L);
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   position: fixed;
+   top: 0;
+   z-index: var(--header_z-index);
+}
+
+.logo {
+   height: calc(var(--headerHeight) - var(--headerPadding_T) * 2);
+}
+
+.header_menuList {
+   display: flex;
+   gap: 40px;
+}
+
+.header_menuButton:hover {
+   opacity: .5;
+   cursor: pointer;
+}
+
+/* ーーーーーーーーーー メイン ーーーーーーーーーー */
+/* ーーーーーーーーーー 共通 ーーーーーーーーーー */
+main>section {
+   position: relative;
+   padding: 8px 0;
+}
+
+.bgText {
+   color: rgb(0, 0, 0, .04);
+   position: absolute;
+   line-height: 1;
+}
+
+.sideText {
+   position: sticky;
+   top: 50%;
+   left: 0;
+   writing-mode: vertical-rl;
+}
+
+.container {
+   max-width: 1000px;
+   margin: 0 auto;
+   position: relative;
+   z-index: var(--container_z-index);
+}
+
+.startButton {
+   background: rgb(97, 183, 64);
+   color: white;
+   padding: 4px 24px;
+   border-radius: 16px;
+}
+
+.startButton:hover {
+   background: rgb(67, 125, 44);
+}
+
+/* ーーーーーーーーーー TOP ーーーーーーーーーー */
+#top {
+   background: rgb(132, 255, 161);
+   height: 100vh;
+   display: flex;
+   align-items: center;
+}
+
+#top .bgText {
+   top: var(--headerHeight);
+   left: 0;
+   font-size: 7vw;
+}
+
+#top .container {
+   width: 90%;
+   margin: 0px auto;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.top_title {
+   font-size: 20px;
+}
+
+.top_buttonContainer {
+   text-align: right;
+   margin-top: 8px;
+}
+
+/* ーーーーーーーーーー ABOUT ーーーーーーーーーー */
+#about {
+   background: rgb(239, 239, 239);
+}
+
+#about .bgText {
+   position: absolute;
+   top: 500px;
+   right: 0;
+   font-size: 11vw;
+}
+
+#about .container {
+   margin: 64px auto;
+}
+
+.aboutCODINATE_inner1 {
+   display: flex;
+   align-items: end;
+   gap: 16px;
+}
+
+.aboutCODINATE_inner1 img {
+   width: 40%;
+}
+
+.aboutCODINATE_inner1 p {
+   font-size: 24px;
+   line-height: 1;
+}
+
+.aboutCODINATE_inner2 {
+   margin-top: 40px;
+}
+
+.aboutCODINATE_inner2 h2 {
+   font-size: 44px;
+   text-decoration: underline red;
+}
+
+.aboutCODINATE_inner2 p {
+   margin-top: 8px;
+}
+
+.aboutLearn {
+   padding: 32px 0;
+   margin-top: 200px;
+}
+
+.aboutLearn>p {
+   text-align: center;
+}
+
+.aboutLearn>p span {
+   font-size: 14px;
+}
+
+.aboutLearn_content_1,
+.aboutLearn_content_2 {
+   width: 80%;
+}
+
+.aboutLearn_content_1 h3,
+.aboutLearn_content_2 h3 {
+   font-size: 24px;
+   padding-left: 8px;
+   border-left: 5px solid #000;
+}
+
+.aboutLearn_content_1 {
+   margin: 16px auto 40px;
+   display: flex;
+   gap: 16px;
+}
+
+.aboutLearn_content_1 p {
+   margin-top: 24px;
+}
+
+.aboutLearn_content_1 img {
+   width: 50%;
+}
+
+.questionImg {
+   background: #a4ffdc;
+}
+
+.aboutLearn_content_2 {
+   margin: 0 auto;
+}
+
+.aboutLearn_content_2_courseContainer {
+   margin-top: 16px;
+   display: flex;
+   gap: 8px;
+}
+
+.aboutLearn_content_2_courseContainer div {
+   width: calc(100% / 3);
+   text-align: center;
+}
+
+.aboutLearn_content_2_courseContainer img {
+   width: 100%;
+}
+
+.codingImg {
+   background: rgb(215, 255, 180);
+}
+
+.designImg {
+   background: rgb(255, 209, 209);
+}
+
+.aboutLearn_content_2_courseContainer h4 {
+   margin: 8px 0;
+}
+
+.aboutLearn_content_2_courseContainer p {
+   font-size: 12px;
+}
+
+.about_buttonContainer {
+   text-align: center;
+   margin-top: 32px;
+}
+
+#about .startButton {
+   padding: 4px 32px;
+}
+
+
+/* ーーーーーーーーーー PREMIUM ーーーーーーーーーー */
+#premium {
+   background: rgb(210, 221, 255);
+}
+
+#premium .bgText {
+   position: absolute;
+   bottom: 0;
+   right: 0;
+   font-size: 8vw;
+}
+
+#premium h2 {
+   font-size: 48px;
+}
+
+.premiumContents {
+   width: 90%;
+   margin: 128px auto 0;
+}
+
+.premiumContents>p {
+   text-align: center;
+}
+
+.premiumContents_inner {
+   width: 70%;
+   margin: 32px auto 0;
+   display: flex;
+   flex-wrap: wrap;
+   gap: 32px;
+}
+
+.premiumContent {
+   background: white;
+   width: calc((100% - 32px) / 2);
+   height: 180px;
+   padding: 16px;
+   border-radius: 8px;
+   border: 2px solid #aaa;
+}
+
+.premiumContent h3 {
+   text-align: center;
+   font-size: 18px;
+   border-bottom: 2px solid #000;
+   padding-bottom: 8px;
+}
+
+.premiumContent_textContainer {
+   width: 80%;
+   margin: 8px auto 0;
+
+}
+
+.premiumContent_textContainer ul {
+   list-style: circle;
+}
+
+.premiumContent_textContainer p {
+   font-size: 14px;
+}
+
+.premium_buttonContainer {
+   text-align: center;
+   margin: 64px 0;
+}
+
+
+/* ーーーーーーーーーー TESTIMONIALS ーーーーーーーーーー */
+#reviews {
+   background: rgba(255, 210, 210);
+}
+
+#reviews .bgText {
+   position: static;
+   padding: 7vh 0;
+   font-size: 8vw;
+   text-align: center;
+}
+
+#reviews h2 {
+   text-align: center;
+   font-size: 26px;
+}
+
+.reviews_container {
+   width: 80%;
+   padding-top: 56px;
+   margin: 0 auto;
+}
+
+.reviews_contents {
+   display: flex;
+   align-items: center;
+   gap: 8px;
+}
+
+.reviews_contents:not(:first-child) {
+   margin-top: 24px;
+}
+
+.reviews_contents img {
+   background: white;
+   width: 80px;
+   height: 100%;
+   border: 2px solid #000;
+   border-radius: 50%;
+}
+
+.reviews_contents h3 {
+   border-bottom: 2px solid #000;
+}
+
+.reviews_contents p {
+   margin-top: 4px;
+   font-size: 14px;
+}
+
+/* ーーーーーーーーーー start-learn ーーーーーーーーーー */
+#start-learn {
+   background: rgba(2, 172, 170, 100);
+   padding: 128px;
+   text-align: center;
+}
+
+#start-learn .bgText {
+   bottom: 20px;
+   right: 16px;
+   font-size: 7vw;
+}
+
+#start-learn h2 {
+   font-size: 40px;
+}
+
+.start-learn_buttonContainer {
+   margin-top: 32px;
+}
